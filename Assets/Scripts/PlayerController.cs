@@ -1,87 +1,67 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private CharacterController _controller;
-
-    private Vector3 _input, _moveDirection;
-
-    [Header("Variables that affect the player's movement")]
-    public float MoveSpeed = 10;
-    public float JumpHeight = 10;
-    public float Gravity = 9.81f;
-    public float AirControl = 10; // will allow us to set the speed
-
-    [Header("Sound Effects")]
-    public AudioClip JumpSFX;
-
-    // Start is called before the first frame update
+    [SerializeField] private float _movementSpd = 5f, _jumpforce = 5f; 
+    [SerializeField] private Rigidbody2D _rigidBody;
+    [SerializeField] private AnimationController _animController;
+    private Vector2 _moveVector;
+    private bool _jumpRequested = false;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _controller = GetComponent<CharacterController>();
+        _rigidBody = GetComponent<Rigidbody2D>();
+        _animController = GetComponent<AnimationController>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        // if you have an xbox controller and use joystick to move player
-        // then this method will recognize that input and you will be able to
-        // use that controller. makes function more generic rather than
-        // limiting to keyboard
-
-        _input = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
-        // based on local orientation (updating based on input from the user)
-        // input is a Vector3
-
-        // diagonal movement is a bit faster than just pressing one key because of the multiplication
-        // normalize the input vector to solve this problem
-
-        _input *= MoveSpeed;
-
-        if(_controller.isGrounded)
+        _rigidBody.linearVelocityX = _moveVector.x * _movementSpd;
+        if(_jumpRequested)
         {
-            // we can jump if we are grounded
-            Jump();
-        } 
-        else
-        {
-            // handle the player coming back down after jumping
-            AfterJump();
-        }
-
-        _moveDirection.y -= Gravity * Time.deltaTime;
-        // we are doing this because we want to move the object down (down vector)
-        // going to subtract from the y component over time
-
-    }
-
-    private void Jump()
-    {
-        _moveDirection = _input;
-        // we can jump if we are grounded
-        if(Input.GetButton("Jump"))
-        {
-            _moveDirection.y = Mathf.Sqrt(2 * JumpHeight * Gravity);
-            if(JumpSFX != null){AudioSource.PlayClipAtPoint(JumpSFX, Camera.main.transform.position);}
-        } 
-        else
-        {
-            _moveDirection.y = 0.0f;
+            _rigidBody.linearVelocityY = _jumpforce;
+            _jumpRequested = false;
         }
     }
 
-    private void AfterJump()
+    public void Move(Vector2 moveVector)
+    {   
+        var dot = Vector2.Dot(moveVector, _moveVector);
+        if(dot == -1)
+        {
+            InvertFaceDir(false);
+        } else
+        {
+            InvertFaceDir(true);
+        }
+        _moveVector = moveVector;
+        // play the move anim if the player has moved
+        if(_moveVector == Vector2.zero) // no movement if movement = 0
+        {
+           _animController.SetAnimation(false);
+        } else // movement != 0, player is moving
+        {
+          _animController.SetAnimation(true);  
+        }
+
+    }
+
+    public void Jump()
     {
-        // we are midair; we should not be able to jump
-        _input.y = _moveDirection.y; // we do not want to change the y height
-        _moveDirection = Vector3.Lerp(_moveDirection, _input, AirControl * Time.deltaTime);
-        // we want to gradually change the player's direction while in air 
-        // abt preserving current height (there will be an arc because applying from height)        
+        _jumpRequested = true;
+    }
+
+    public void InvertFaceDir(bool facingFront)
+    {
+        if(!facingFront)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
+        } 
+        else
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }
