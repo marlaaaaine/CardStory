@@ -16,6 +16,10 @@ public class PlayerInputHandler : MonoBehaviour
         _characterController = GetComponent<PlayerController>();
     }
 
+    /// <summary>
+    /// Based on the player input (if space bar is pressed), make the player jump
+    /// </summary>
+    /// <param name="context"></param>
     private void Jump(InputAction.CallbackContext context)
     {
         // call character jump
