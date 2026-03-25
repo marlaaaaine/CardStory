@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.TextCore.Text;
@@ -6,6 +7,15 @@ public class PlayerInputHandler : MonoBehaviour
 {
     private InputAction _moveAction, _jumpAction;
     private PlayerController _characterController;
+    /// <summary> Can the player move? summary>
+    private bool _canMove = true;
+
+    /// <summary> wrapper field for getting or setting _canMove bool </summary>
+    public bool CanMove
+    {
+        get { return _canMove; }
+        set => _canMove = value;
+    }
     private void Awake()
     {
         _moveAction = InputSystem.actions.FindAction("Move");
@@ -23,14 +33,22 @@ public class PlayerInputHandler : MonoBehaviour
     private void Jump(InputAction.CallbackContext context)
     {
         // call character jump
-        _characterController.Jump();
+        if (CanMove) _characterController.Jump();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveVector = _moveAction.ReadValue<Vector2>();
-        // call character move
-        _characterController.Move(moveVector);
+        if (CanMove)
+        {
+            Vector2 moveVector = _moveAction.ReadValue<Vector2>();
+            // call character move
+            _characterController.Move(moveVector);
+        }
+        else
+        {
+            // Stop the player
+            _characterController.Move(Vector2.zero);
+        }
     }
 }
