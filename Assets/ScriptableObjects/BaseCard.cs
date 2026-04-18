@@ -11,6 +11,8 @@ public class BaseCard : ScriptableObject
     public Sprite CardCover;
     /// <summary> Card background </summary>
     public Sprite CardBG;
+    /// <summary> </summary>
+    public int CutsceneIndex;
 
 
 

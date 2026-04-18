@@ -8,14 +8,11 @@ using DG.Tweening;
 /// </summary>
 public class CardView : MonoBehaviour
 {
-    /// <summary>
-    /// Contains data about the properties of this card
-    /// </summary>
+    /// <summary> Contains data about the properties of this card </summary>
     [SerializeField] private BaseCard CardDetails;
-    /// <summary>
-    /// Card's sprite renderer
-    /// </summary>
+    /// <summary> Card cover's sprite renderer </summary>
     [SerializeField] private SpriteRenderer _coverRenderer;
+    /// <summary> Card bg's sprite renderer </summary>
     [SerializeField] private SpriteRenderer _bgRenderer;
     [SerializeField] private GameObject _screenFilter;
     /// <summary> Value of how much we should zoom into the card when collected </summary>
@@ -27,18 +24,18 @@ public class CardView : MonoBehaviour
         SetBackground();
     }
 
-    /// <summary>
-    /// Set the cover image of this card by setting the
-    /// sprite to be rendered by the sprite renderer
-    /// </summary>
+    /// <summary> Set the cover image of this card by setting the
+    /// sprite to be rendered by the sprite renderer </summary>
     public void SetCover()
     {
         _coverRenderer.sprite = CardDetails.CardCover;
     }
 
+    /// <summary> Set the bg image of this card by setting
+    /// the sprite to be rendered by the sprite renderer </summary>
     public void SetBackground()
     {
-
+        _bgRenderer.sprite = CardDetails.CardBG;
     }
 
     /// <summary> How the card should be animated when it is collected summary>

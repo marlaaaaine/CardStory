@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    /// <summary> the player's movement speed (how fast they move) and jump force (how high they jump) </summary>
     [SerializeField] private float _movementSpd = 5f, _jumpforce = 5f;
+    /// <summary> reference to the player's rigid body </summary>
     [SerializeField] private Rigidbody2D _rigidBody;
+    /// <summary> reference to script that handles setting the animation for the player </summary>
     [SerializeField] private AnimationController _animController;
+    /// <summary> vector2 representing how much the player has moved </summary>
     private Vector2 _moveVector;
     private float _prevX = 0;
+    /// <summary> the sum of the player's most recent movement </summary>
     private float _currentMovementSum = 0;
+    /// <summary> records the sum of how much the player has moved before the next sum</summary>
     private float _prevMovementSum = 0;
+    /// <summary> bool for whether the player has clicked the jump key or not </summary>
     private bool _jumpRequested = false;
+    /// <summary> bool for whether the player is facing right or not </summary>
     private bool _facingRight = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -57,19 +66,26 @@ public class PlayerController : MonoBehaviour
     /// playing (idle vs moving) based on whether the _moveVector is zero or not 
     /// </summary>
     /// <param name="moveVector"></param>
-    public void Move(Vector2 moveVector)
+    public void Move(Vector2 moveVector, bool canAnimate = true)
     {
         // set the old _moveVector to the new input
         _moveVector = moveVector;
 
-        // play the move anim if the player has moved
-        if (_moveVector == Vector2.zero) // no movement if movement = 0
+        if (canAnimate)
         {
-            _animController.SetAnimation(false);
+            // play the move anim if the player has moved
+            if (_moveVector == Vector2.zero) // no movement if movement = 0
+            {
+                _animController.SetAnimation(AnimationController.PlayerStateTypes.Idle);
+            }
+            else // movement != 0, player is moving
+            {
+                _animController.SetAnimation(AnimationController.PlayerStateTypes.Run);
+            }
         }
-        else // movement != 0, player is moving
+        else
         {
-            _animController.SetAnimation(true);
+            _animController.SetAnimation(AnimationController.PlayerStateTypes.None);
         }
     }
 
@@ -81,9 +97,7 @@ public class PlayerController : MonoBehaviour
         _jumpRequested = true;
     }
 
-    /// <summary>
-    /// Flips the player by inverting their scale to be negative or positive
-    /// </summary>
+    /// <summary> Flips the player by inverting their scale to be negative or positive </summary>
     public void InvertPlayerDir()
     {
         Vector3 currentScale = gameObject.transform.localScale;

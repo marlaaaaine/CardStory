@@ -48,7 +48,7 @@ public class PlayerInputHandler : MonoBehaviour
         else
         {
             // Stop the player
-            _characterController.Move(Vector2.zero);
+            _characterController.Move(Vector2.zero, false);
         }
     }
 }

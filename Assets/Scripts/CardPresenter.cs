@@ -1,5 +1,7 @@
 using System;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Communicates with the CardView to represent the state of a card in game
@@ -23,7 +25,7 @@ public class CardPresenter : MonoBehaviour
         get { return IsCollected; }
         set
         {
-            if (IsCollected != value)
+            if (IsCollected != value) // is the value being set different than the current value?
             {
                 IsCollected = value;
                 if (IsCollected)
@@ -56,18 +58,22 @@ public class CardPresenter : MonoBehaviour
         CollectedBool = true;
     }
 
-    /// <summary>
-    /// What should happen when a card is collected? There should be an animation bringing
+    /// <summary> What should happen when a card is collected? There should be an animation bringing
     /// the card to the center of the screen, then zoom in to the card to view its details.
     /// The scene behind it should be frozen, put a filter over the background. Nothing should
-    /// be interactable other than the card.
-    /// </summary>
+    /// be interactable other than the card. </summary>
     public void CollectCard()
     {
         Debug.Log("Something should happen when the card is collected");
         // Disable player movement, TODO: remember to set to true somewhere
         _playerInputHandler.CanMove = false;
         _view.AnimateCardCollection();
+    }
+
+    /// <summary> </summary>
+    public void TriggerCard()
+    {
+
     }
 
 

@@ -2,28 +2,34 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class AnimationController : MonoBehaviour
-{   
-    /// <summary>
-    /// Animator component that plays the set animation
-    /// </summary>
+{
+    /// <summary> Animator component that plays the set animation  </summary>
     [SerializeField] private Animator _animator;
-    /// <summary>
-    /// string holding the name of the animation parameter used to change currently playing animations
-    /// </summary>
-    private string _paramName;
-    
+    /// <summary> string for the current animation state of the player </summary>
+    private PlayerStateTypes _currentState;
+
+    /// <summary> the types of player animations </summary>
+    public enum PlayerStateTypes
+    {
+        None,
+        Run,
+        Idle
+    }
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _paramName = "IsRunning";
     }
 
     /// <summary>
-    /// Set the animation currently playing using a bool 
+    /// Set the animation currently playing using the enum with the types
+    /// of player animations only if the _currentState is different from the passed in one 
     /// </summary>
-    /// <param name="state"></param>
-    public void SetAnimation(bool state)
+    /// <param name="state"> the animation state we want to set </param>
+    public void SetAnimation(PlayerStateTypes playerState)
     {
-     _animator.SetBool(_paramName, state);   
+        if (_currentState == playerState) return;
+        _currentState = playerState;
+        _animator.SetTrigger(playerState.ToString());
     }
 }
