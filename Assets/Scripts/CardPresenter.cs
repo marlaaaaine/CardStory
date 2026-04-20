@@ -78,7 +78,8 @@ public class CardPresenter : MonoBehaviour
     public void InteractWithCard()
     {
         Debug.Log("Card has been interacted with ");
-        _view.RotateAroundAxis();
+        _view.RotateAroundYAxis();
+        StartCoroutine(CutSceneManager.Instance.LoadSceneAsync(_view.GetSceneIndex()));
     }
 
 

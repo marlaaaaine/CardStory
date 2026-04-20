@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Security.Cryptography;
 
 
 /// <summary>
@@ -38,6 +39,10 @@ public class CardView : MonoBehaviour
         _bgRenderer.sprite = CardDetails.CardBG;
     }
 
+    /// <summary> Return the index of the cutscene tied to this card </summary>
+    /// <returns> scene index of this card's cutscene </returns>
+    public int GetSceneIndex() { return CardDetails.CutsceneIndex; }
+
 
     /// <summary> How the card should be animated when it is collected summary>
     public void AnimateCardCollection()
@@ -53,7 +58,7 @@ public class CardView : MonoBehaviour
         transform.DOScale(ZoomValue, 0.3f).SetEase(Ease.OutBack);
     }
 
-    public void RotateAroundAxis()
+    public void RotateAroundYAxis()
     {
         transform.DORotate(new Vector3(0, 360, 0), 1f, RotateMode.LocalAxisAdd);
     }

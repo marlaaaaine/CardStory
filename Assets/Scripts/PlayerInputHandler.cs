@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerController))]
 public class PlayerInputHandler : MonoBehaviour
 {
     /// <summary> input actions for moving and jumping </summary>

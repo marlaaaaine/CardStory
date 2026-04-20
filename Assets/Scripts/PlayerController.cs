@@ -2,6 +2,8 @@
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AnimationController))]
 public class PlayerController : MonoBehaviour
 {
     /// <summary> the player's movement speed (how fast they move) and jump force (how high they jump) </summary>

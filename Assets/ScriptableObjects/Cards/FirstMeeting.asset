@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseCard
   CardCover: {fileID: 4542611921951687986, guid: d9b3eaa65028c49449dd67162c2dfeeb, type: 3}
   CardBG: {fileID: 4304561521470109053, guid: 93d5d8ba2f599d842834af60dd544038, type: 3}
+  CutsceneIndex: 1

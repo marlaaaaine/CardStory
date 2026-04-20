@@ -4,11 +4,18 @@ using UnityEngine.SceneManagement;
 
 public class CutSceneManager : MonoBehaviour
 {
+    public static CutSceneManager Instance { get; private set; }
     private readonly int _mainScene = 0;
     private int _currentScene;
 
+    /// <summary> Set the instance of the cutscene manager; there should only exist one. </summary>
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Asynchronous additive load (Recommended for performance)
-    IEnumerator LoadSceneAsync(int sceneIndex)
+    public IEnumerator LoadSceneAsync(int sceneIndex)
     {
         // keep track of the current scene 
         _currentScene = sceneIndex;
@@ -25,7 +32,7 @@ public class CutSceneManager : MonoBehaviour
     /// </summary>
     /// <param name="sceneIndex"></param>
     /// <returns></returns>
-    IEnumerator UnloadRoutine(int sceneIndex)
+    public IEnumerator UnloadRoutine(int sceneIndex)
     {
         AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(sceneIndex);
         while (!asyncUnload.isDone)
