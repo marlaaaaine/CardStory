@@ -2,20 +2,23 @@ using System;
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Communicates with the CardView to represent the state of a card in game
 /// </summary>
 public class CardPresenter : MonoBehaviour
 {
+    /// <summary> Keep track of the current COLLECTED card </summary>
+    public static CardPresenter CurrentCollectedCard;
     /// <summary> Action that gets invoked when a card has been collected </summary>
     public Action OnCollected;
     /// <summary> Bool that tells whether or not the card has been collected by the player </summary>
     public bool IsCollected;
 
-
     /// <summary> reference to the object processing input from the player </summary>
     [SerializeField] PlayerInputHandler _playerInputHandler;
+    /// <summary> class controlling the visual aspects of the card </summary>
     [SerializeField] CardView _view;
 
     /// <summary> Getter/Setter for IsCollected bool
@@ -30,6 +33,7 @@ public class CardPresenter : MonoBehaviour
                 IsCollected = value;
                 if (IsCollected)
                 {
+                    CurrentCollectedCard = this;
                     OnCollected?.Invoke();
                 }
             }
@@ -70,10 +74,11 @@ public class CardPresenter : MonoBehaviour
         _view.AnimateCardCollection();
     }
 
-    /// <summary> </summary>
-    public void TriggerCard()
+    /// <summary> What should happen when the player interacts with the card? </summary>
+    public void InteractWithCard()
     {
-
+        Debug.Log("Card has been interacted with ");
+        _view.RotateAroundAxis();
     }
 
 

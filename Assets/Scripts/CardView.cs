@@ -38,6 +38,7 @@ public class CardView : MonoBehaviour
         _bgRenderer.sprite = CardDetails.CardBG;
     }
 
+
     /// <summary> How the card should be animated when it is collected summary>
     public void AnimateCardCollection()
     {
@@ -50,6 +51,11 @@ public class CardView : MonoBehaviour
         transform.DOMove(screenCenterPos, 1f).SetEase(Ease.OutQuad);
         // Scale animation
         transform.DOScale(ZoomValue, 0.3f).SetEase(Ease.OutBack);
+    }
+
+    public void RotateAroundAxis()
+    {
+        transform.DORotate(new Vector3(0, 360, 0), 1f, RotateMode.LocalAxisAdd);
     }
     // TODO: I want code for setting the card cover and also the effects for when the card appears on screen when collected
 

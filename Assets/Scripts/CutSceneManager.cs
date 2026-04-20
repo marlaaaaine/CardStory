@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class CutSceneManager : MonoBehaviour
 {
-    private int _mainScene = 0;
+    private readonly int _mainScene = 0;
     private int _currentScene;
 
     // Asynchronous additive load (Recommended for performance)
@@ -21,7 +21,7 @@ public class CutSceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Aysnch additive unloading of scene
     /// </summary>
     /// <param name="sceneIndex"></param>
     /// <returns></returns>
