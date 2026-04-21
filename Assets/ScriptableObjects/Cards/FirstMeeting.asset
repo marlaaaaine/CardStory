@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d218d9d1712bb409952d97b0a68619, type: 3}
   m_Name: FirstMeeting
   m_EditorClassIdentifier: Assembly-CSharp::BaseCard
-  CardCover: {fileID: 4542611921951687986, guid: d9b3eaa65028c49449dd67162c2dfeeb, type: 3}
-  CardBG: {fileID: 4304561521470109053, guid: 93d5d8ba2f599d842834af60dd544038, type: 3}
+  CardImage: {fileID: -7885217869464611099, guid: 621a1cced70d07343b6c49bc0c20dee1, type: 3}
   CutsceneIndex: 1

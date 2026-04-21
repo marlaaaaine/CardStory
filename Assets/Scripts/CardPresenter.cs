@@ -21,6 +21,7 @@ public class CardPresenter : MonoBehaviour
     /// <summary> class controlling the visual aspects of the card </summary>
     [SerializeField] CardView _view;
 
+    #region Getter&Setters
     /// <summary> Getter/Setter for IsCollected bool
     /// When the bool is set to true, invoke the OnCollected action </summary>
     public bool CollectedBool
@@ -39,6 +40,9 @@ public class CardPresenter : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Unity Methods
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -62,6 +66,10 @@ public class CardPresenter : MonoBehaviour
         CollectedBool = true;
     }
 
+    #endregion
+
+    #region Card Collection
+
     /// <summary> What should happen when a card is collected? There should be an animation bringing
     /// the card to the center of the screen, then zoom in to the card to view its details.
     /// The scene behind it should be frozen, put a filter over the background. Nothing should
@@ -81,6 +89,8 @@ public class CardPresenter : MonoBehaviour
         _view.RotateAroundYAxis();
         StartCoroutine(CutSceneManager.Instance.LoadSceneAsync(_view.GetSceneIndex()));
     }
+
+    #endregion
 
 
 }

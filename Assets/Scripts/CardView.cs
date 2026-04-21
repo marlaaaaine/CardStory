@@ -12,37 +12,39 @@ public class CardView : MonoBehaviour
     /// <summary> Contains data about the properties of this card </summary>
     [SerializeField] private BaseCard CardDetails;
     /// <summary> Card cover's sprite renderer </summary>
-    [SerializeField] private SpriteRenderer _coverRenderer;
-    /// <summary> Card bg's sprite renderer </summary>
-    [SerializeField] private SpriteRenderer _bgRenderer;
+    [SerializeField] private SpriteRenderer _cardRenderer;
+    /// <summary>TODO: determine usage</summary>
     [SerializeField] private GameObject _screenFilter;
     /// <summary> Value of how much we should zoom into the card when collected </summary>
     public float ZoomValue = 8f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    #region Initialization
+
+    /// <summary> Set the image of the card on awake </summary>
     private void Awake()
     {
-        SetCover();
-        SetBackground();
+        SetCardImage();
     }
 
-    /// <summary> Set the cover image of this card by setting the
+    #endregion
+
+    #region Set & Get Card Props
+
+    /// <summary> Set the card image of this card by setting the
     /// sprite to be rendered by the sprite renderer </summary>
-    public void SetCover()
+    public void SetCardImage()
     {
-        _coverRenderer.sprite = CardDetails.CardCover;
+        _cardRenderer.sprite = CardDetails.CardImage;
     }
 
-    /// <summary> Set the bg image of this card by setting
-    /// the sprite to be rendered by the sprite renderer </summary>
-    public void SetBackground()
-    {
-        _bgRenderer.sprite = CardDetails.CardBG;
-    }
 
     /// <summary> Return the index of the cutscene tied to this card </summary>
     /// <returns> scene index of this card's cutscene </returns>
     public int GetSceneIndex() { return CardDetails.CutsceneIndex; }
 
+    #endregion
+
+    #region Card Animations
 
     /// <summary> How the card should be animated when it is collected summary>
     public void AnimateCardCollection()
@@ -62,6 +64,7 @@ public class CardView : MonoBehaviour
     {
         transform.DORotate(new Vector3(0, 360, 0), 1f, RotateMode.LocalAxisAdd);
     }
-    // TODO: I want code for setting the card cover and also the effects for when the card appears on screen when collected
+
+    #endregion
 
 }

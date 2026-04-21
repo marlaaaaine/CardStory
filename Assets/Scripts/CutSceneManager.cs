@@ -8,13 +8,27 @@ public class CutSceneManager : MonoBehaviour
     private readonly int _mainScene = 0;
     private int _currentScene;
 
+    #region Initialization
+
     /// <summary> Set the instance of the cutscene manager; there should only exist one. </summary>
     private void Awake()
     {
         Instance = this;
     }
 
-    // Asynchronous additive load (Recommended for performance)
+    #endregion
+
+    #region Loading Scenes
+    /// <summary> asynchronously loads the scene by the given index </summary>
+    /// <param name="sceneIndex"></param>
+    public void LoadScene(int sceneIndex)
+    {
+        StartCoroutine(LoadSceneAsync(sceneIndex));
+    }
+
+    /// <summary> Asynch additive scene loading </summary>
+    /// <param name="sceneIndex"></param>
+    /// <returns></returns>
     public IEnumerator LoadSceneAsync(int sceneIndex)
     {
         // keep track of the current scene 
@@ -26,10 +40,18 @@ public class CutSceneManager : MonoBehaviour
         }
         // scene is now fully loaded
     }
+    #endregion
 
-    /// <summary>
-    /// Aysnch additive unloading of scene
-    /// </summary>
+    #region Unloading Scenes
+
+    /// <summary> asychronously unloads the scene by the given index </summary>
+    /// <param name="sceneIndex"></param>
+    public void UnloadScene(int sceneIndex)
+    {
+        StartCoroutine(UnloadRoutine(sceneIndex));
+    }
+
+    /// <summary> Aysnch additive unloading of scene </summary>
     /// <param name="sceneIndex"></param>
     /// <returns></returns>
     public IEnumerator UnloadRoutine(int sceneIndex)
@@ -42,6 +64,8 @@ public class CutSceneManager : MonoBehaviour
         // Scene is now fully unloaded
         // should the main scene be loaded here
     }
+
+    #endregion
 
 
 }

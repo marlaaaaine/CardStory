@@ -8,9 +8,7 @@ using UnityEngine;
 public class BaseCard : ScriptableObject
 {
     /// <summary> Image representing the card </summary>
-    public Sprite CardCover;
-    /// <summary> Card background </summary>
-    public Sprite CardBG;
+    public Sprite CardImage;
     /// <summary> </summary>
     public int CutsceneIndex;
 
