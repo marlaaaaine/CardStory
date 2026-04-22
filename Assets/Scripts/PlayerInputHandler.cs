@@ -33,6 +33,7 @@ public class PlayerInputHandler : MonoBehaviour
     /// <param name="context"></param>
     private void Jump(InputAction.CallbackContext context)
     {
+        Debug.Log("Jump was called");
         // call character jump
         if (CanMove) _characterController.Jump();
     }
