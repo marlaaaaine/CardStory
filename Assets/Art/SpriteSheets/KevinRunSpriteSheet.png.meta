@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 64fc11d32d090364880c4ae7bdbae9cc
+guid: f1f031b44955ca04983c2ea2001da463
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2812907222485255874
-    second: Kevin Walk Sprite Sheet_0
+      213: 2216826644989861519
+    second: KevinRunSpriteSheet_0
   - first:
-      213: 5020296103349805833
-    second: Kevin Walk Sprite Sheet_1
+      213: 3594393999935035581
+    second: KevinRunSpriteSheet_1
   - first:
-      213: -7909239416826637960
-    second: Kevin Walk Sprite Sheet_2
+      213: 8998326709178189892
+    second: KevinRunSpriteSheet_2
   - first:
-      213: -7424995965014736800
-    second: Kevin Walk Sprite Sheet_3
+      213: -8683246435908721992
+    second: KevinRunSpriteSheet_3
   - first:
-      213: -8158376666185823310
-    second: Kevin Walk Sprite Sheet_4
+      213: 8558845797027837558
+    second: KevinRunSpriteSheet_4
   - first:
-      213: -1672177783153364013
-    second: Kevin Walk Sprite Sheet_5
+      213: -6997253008807128064
+    second: KevinRunSpriteSheet_5
   - first:
-      213: -1794031614661847897
-    second: Kevin Walk Sprite Sheet_6
+      213: -1519768447862234441
+    second: KevinRunSpriteSheet_6
   - first:
-      213: 1146974117818822324
-    second: Kevin Walk Sprite Sheet_7
-  - first:
-      213: 2634098286699334895
-    second: Kevin Walk Sprite Sheet_8
+      213: -5033414472451556513
+    second: KevinRunSpriteSheet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,199 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_0
+      name: KevinRunSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 15
-        height: 26
+        width: 17
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e39b2a9d8cb86f8d0800000000000000
-      internalID: -2812907222485255874
+      spriteID: f8edd3f9610c3ce10800000000000000
+      internalID: 2216826644989861519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_1
+      name: KevinRunSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 18
+        x: 17
         y: 0
-        width: 15
-        height: 26
+        width: 17
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 903617315bcaba540800000000000000
-      internalID: 5020296103349805833
+      spriteID: db85cec8c4ad1e130800000000000000
+      internalID: 3594393999935035581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_2
+      name: KevinRunSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 34
         y: 0
-        width: 15
-        height: 27
+        width: 17
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 871d784c7acbc3290800000000000000
-      internalID: -7909239416826637960
+      spriteID: 448c971877a70ec70800000000000000
+      internalID: 8998326709178189892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_3
+      name: KevinRunSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 52
+        x: 51
         y: 0
-        width: 15
-        height: 27
+        width: 17
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0608696528d15f890800000000000000
-      internalID: -7424995965014736800
+      spriteID: 8b2eb725f59ee7780800000000000000
+      internalID: -8683246435908721992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_4
+      name: KevinRunSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 69
+        x: 68
         y: 0
-        width: 15
-        height: 29
+        width: 17
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bb8824a5af97ce80800000000000000
-      internalID: -8158376666185823310
+      spriteID: 676703bd7e027c670800000000000000
+      internalID: 8558845797027837558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_5
+      name: KevinRunSpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 86
+        x: 85
         y: 0
-        width: 15
-        height: 29
+        width: 17
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d3f7d17a2b3bc8e0800000000000000
-      internalID: -1672177783153364013
+      spriteID: 00494862673c4ee90800000000000000
+      internalID: -6997253008807128064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_6
+      name: KevinRunSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 103
+        x: 102
         y: 0
-        width: 15
-        height: 27
+        width: 17
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a4924c60c15a17e0800000000000000
-      internalID: -1794031614661847897
+      spriteID: 7b2235416a2b8eae0800000000000000
+      internalID: -1519768447862234441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_7
+      name: KevinRunSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 120
+        x: 119
         y: 0
-        width: 15
-        height: 27
+        width: 17
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4be682b12eedaef00800000000000000
-      internalID: 1146974117818822324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kevin Walk Sprite Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 0
-        width: 15
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: feccd2a8f623e8420800000000000000
-      internalID: 2634098286699334895
+      spriteID: f5bf63a9438b52ab0800000000000000
+      internalID: -5033414472451556513
       vertices: []
       indices: 
       edges: []
@@ -338,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d3dbde6e17e672846816e70360a508b5
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -346,19 +321,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Kevin Walk Sprite Sheet_0: -2812907222485255874
-      Kevin Walk Sprite Sheet_1: 5020296103349805833
-      Kevin Walk Sprite Sheet_2: -7909239416826637960
-      Kevin Walk Sprite Sheet_3: -7424995965014736800
-      Kevin Walk Sprite Sheet_4: -8158376666185823310
-      Kevin Walk Sprite Sheet_5: -1672177783153364013
-      Kevin Walk Sprite Sheet_6: -1794031614661847897
-      Kevin Walk Sprite Sheet_7: 1146974117818822324
-      Kevin Walk Sprite Sheet_8: 2634098286699334895
+      KevinRunSpriteSheet_0: 2216826644989861519
+      KevinRunSpriteSheet_1: 3594393999935035581
+      KevinRunSpriteSheet_2: 8998326709178189892
+      KevinRunSpriteSheet_3: -8683246435908721992
+      KevinRunSpriteSheet_4: 8558845797027837558
+      KevinRunSpriteSheet_5: -6997253008807128064
+      KevinRunSpriteSheet_6: -1519768447862234441
+      KevinRunSpriteSheet_7: -5033414472451556513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

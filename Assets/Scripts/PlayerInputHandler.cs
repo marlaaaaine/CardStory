@@ -8,15 +8,9 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction _moveAction, _jumpAction, _interactAction;
     /// <summary> script that controls player movement </summary>
     private PlayerController _characterController;
-    /// <summary> Can the player move? summary>
-    private bool _canMove = true;
 
-    /// <summary> wrapper field for getting or setting _canMove bool </summary>
-    public bool CanMove
-    {
-        get { return _canMove; }
-        set => _canMove = value;
-    }
+    /// <summary>Bool for whether the player can move.</summary>
+    public static bool CanMove { get; set; }
     private void Awake()
     {
         _moveAction = InputSystem.actions.FindAction("Move");
@@ -27,6 +21,9 @@ public class PlayerInputHandler : MonoBehaviour
         _interactAction.started += Interact;
 
         _characterController = GetComponent<PlayerController>();
+
+        // starting default value
+        CanMove = true;
     }
 
     /// <summary> Based on the player input (if space bar is pressed), make the player jump </summary>

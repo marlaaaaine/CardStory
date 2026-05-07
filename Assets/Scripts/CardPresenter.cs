@@ -1,6 +1,7 @@
 using System;
 using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,9 +16,6 @@ public class CardPresenter : MonoBehaviour
     public Action OnCollected;
     /// <summary> Bool that tells whether or not the card has been collected by the player </summary>
     public bool IsCollected;
-
-    /// <summary> reference to the object processing input from the player </summary>
-    [SerializeField] PlayerInputHandler _playerInputHandler;
     /// <summary> class controlling the visual aspects of the card </summary>
     [SerializeField] CardView _view;
 
@@ -78,7 +76,7 @@ public class CardPresenter : MonoBehaviour
     {
         Debug.Log("Something should happen when the card is collected");
         // Disable player movement, TODO: remember to set to true somewhere
-        _playerInputHandler.CanMove = false;
+        PlayerInputHandler.CanMove = false;
         _view.AnimateCardCollection();
     }
 
