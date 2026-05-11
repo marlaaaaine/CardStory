@@ -1,9 +1,5 @@
 using System;
-using Unity.VectorGraphics;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 /// <summary>
 /// Communicates with the CardView to represent the state of a card in game
@@ -84,8 +80,16 @@ public class CardPresenter : MonoBehaviour
     public void InteractWithCard()
     {
         Debug.Log("Card has been interacted with ");
+        // rotate da card
         _view.RotateAroundYAxis();
+        // destroy this card
+        Destroy(gameObject);
+        // start asynch loading the next scene
         StartCoroutine(CutSceneManager.Instance.LoadSceneAsync(_view.GetSceneIndex()));
+        // allow player to move after each
+        // asynch load because each card will trigger the loading
+        // which is the only time when the player is stopped
+        PlayerInputHandler.CanMove = true;
     }
 
     #endregion

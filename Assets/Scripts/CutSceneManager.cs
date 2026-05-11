@@ -39,6 +39,7 @@ public class CutSceneManager : MonoBehaviour
             yield return null;
         }
         // scene is now fully loaded
+        Debug.Log("scene asynch loading done");
     }
     #endregion
 
