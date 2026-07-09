@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 1343430500}
   - component: {fileID: 1343430499}
   - component: {fileID: 1343430502}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.014961377}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -620,7 +620,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.0299227}
   m_EdgeRadius: 0
 --- !u!212 &1343430500
 SpriteRenderer:
@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 1755766787}
   - component: {fileID: 1755766786}
   - component: {fileID: 1755766785}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

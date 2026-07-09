@@ -60,9 +60,10 @@ public class CardView : MonoBehaviour
         transform.DOScale(ZoomValue, 0.3f).SetEase(Ease.OutBack);
     }
 
+    /// <summary> Rotates the card around the y-axis using DOTween </summary>
     public void RotateAroundYAxis()
     {
-        transform.DORotate(new Vector3(0, 360, 0), 1f, RotateMode.LocalAxisAdd);
+        transform.DORotate(new Vector3(0, 450, 0), 1f, RotateMode.LocalAxisAdd).SetLink(gameObject).SetId(transform);
     }
 
     #endregion

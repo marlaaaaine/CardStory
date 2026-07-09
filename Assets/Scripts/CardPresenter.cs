@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 /// <summary>
@@ -6,8 +7,9 @@ using UnityEngine;
 /// </summary>
 public class CardPresenter : MonoBehaviour
 {
+
     /// <summary> Keep track of the current COLLECTED card </summary>
-    public static CardPresenter CurrentCollectedCard;
+    public static CardPresenter CollectedCard;
     /// <summary> Action that gets invoked when a card has been collected </summary>
     public Action OnCollected;
     /// <summary> Bool that tells whether or not the card has been collected by the player </summary>
@@ -28,7 +30,7 @@ public class CardPresenter : MonoBehaviour
                 IsCollected = value;
                 if (IsCollected)
                 {
-                    CurrentCollectedCard = this;
+                    CollectedCard = this;
                     OnCollected?.Invoke();
                 }
             }
@@ -82,14 +84,20 @@ public class CardPresenter : MonoBehaviour
         Debug.Log("Card has been interacted with ");
         // rotate da card
         _view.RotateAroundYAxis();
-        // destroy this card
-        Destroy(gameObject);
         // start asynch loading the next scene
-        StartCoroutine(CutSceneManager.Instance.LoadSceneAsync(_view.GetSceneIndex()));
+        // - need to have the cutscene manager start the coroutine itself rather than
+        // in the CardPresenter because if the CardPresenter does it then
+        // it relies on the CardPresenter object being there to finish the coroutine
+        CutSceneManager.Instance.LoadScene(_view.GetSceneIndex());
+        // once the card in the level has been collected,
+        // the player can proceed into the next level being asynch loaded
+        CutSceneManager.Instance.CanPlayerProceed = true;
         // allow player to move after each
         // asynch load because each card will trigger the loading
         // which is the only time when the player is stopped
         PlayerInputHandler.CanMove = true;
+        // destroy this card
+        Destroy(gameObject, 1f);
     }
 
     #endregion

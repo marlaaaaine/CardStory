@@ -41,9 +41,9 @@ public class PlayerInputHandler : MonoBehaviour
     private void Interact(InputAction.CallbackContext context)
     {
         Debug.Log("There should be an interaction");
-        if (CardPresenter.CurrentCollectedCard != null)
+        if (CardPresenter.CollectedCard != null)
         {
-            CardPresenter.CurrentCollectedCard.InteractWithCard();
+            CardPresenter.CollectedCard.InteractWithCard();
         }
     }
 

@@ -7,6 +7,8 @@ public class CutSceneManager : MonoBehaviour
     public static CutSceneManager Instance { get; private set; }
     private readonly int _mainScene = 0;
     private int _currentScene;
+    /// <summary> whether or not the player can proceed to the next level </summary>
+    public bool CanPlayerProceed = false;
 
     #region Initialization
 
